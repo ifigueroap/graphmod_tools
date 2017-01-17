@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+from graphmod_tools import *
+import argparse
+
+if __name__ == '__main__':
+   parser = argparse.ArgumentParser()
+   parser.add_argument('--dotfile', type=str, required=True)
+   parser.add_argument('--compiler-root-path', type=str, required=True)
+   args = vars(parser.parse_args())
+
+   print_static_dependencies_rsf(get_static_dependencies(args['dotfile'], args['compiler_root_path']))
